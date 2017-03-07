@@ -13,7 +13,6 @@ public class BinarySearch {
     public static int binarySearchInt(int[] a, int x){
         int p = 0;
         int r = a.length-1;
-
         while(p <= r) {
             int q = (p + r) / 2;
             if (x < a[q]) {
@@ -30,7 +29,6 @@ public class BinarySearch {
     public static int binarySearchStr(String[] stA, String st){
         int p = 0;
         int r = stA.length-1;
-
         while(p <= r){
             int q = (p + r)/2;
             if(st.compareTo(stA[q]) < 0){
@@ -41,7 +39,6 @@ public class BinarySearch {
                 return q;
             }
         }
-
         return -1;
     }
 }

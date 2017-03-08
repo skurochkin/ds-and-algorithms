@@ -11,30 +11,44 @@ public class MergeSort {
     // tempArray = new int[inputArray.length];
 
     public static void main(String[] args) {
+        // create an array
         int[] inputArray = {9,7,3,1,6,3,2,6,8,9,2,3,0};
+        // call sort method with created array
         sort(inputArray);
 
+        // print out sorted array
         for(int i= 0; i < inputArray.length; i++){
             System.out.println(inputArray[i]);
         }
     }
 
+    // initial sort method
     public static void sort(int inputArray[]){
+        // calling the main sorting method, overloaded
           sort(inputArray, 0, inputArray.length-1);
     }
 
+    // main sorting
     public static void sort(int inputArray[], int start, int end){
-         if(end <= start){
+        // compare the starting index with end index
+        // if end <= start continue method execution, otherwise keep iterating
+        if(end <= start){
              return; // we are done traversing the array
          }
 
+        // set the middle of array, split array on two
         int mid= (start + end)/2;
+        // divide array, on the left side of the array
+        // either invoke sort on the left side or proceed to the right side
         sort(inputArray, start, mid);
+        // divide array on the right side, if there is nothing else to divide execute merge
         sort(inputArray, mid+1, end);
+        // merge divided parts, pass original array
         merge(inputArray, start, mid, end);
     }
 
     public static void merge(int inputArray[], int start, int mid, int end){
+        // temporary array to store values
         int tempArray[] = new int[end - start + 1];
 
         // index counter of the left side of the array
@@ -42,6 +56,7 @@ public class MergeSort {
         // index counter of the right side of the array
         int rightSlot = mid+1;
         int k = 0;
+
 
         while(leftSlot <= mid && rightSlot <= end){
             if(inputArray[leftSlot] < inputArray[rightSlot]){
